@@ -1,4 +1,7 @@
 module.exports = {
+  siteMetadata: {
+    title: `Josh's Digital Garden`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-roamresearch`,
@@ -11,28 +14,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
+          `gatsby-remark-double-brackets-link`,
+          `gatsby-remark-double-parenthesis-link`,
           {
-            resolve: `gatsby-remark-double-brackets-link`,
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+            },
           },
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-double-parenthesis-link`,
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-transformer-markdown-references`,
-      options: {
-        types: ["Mdx"],
-      },
-    },
+    `gatsby-transformer-markdown-references`
   ],
 }
