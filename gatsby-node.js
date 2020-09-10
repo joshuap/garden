@@ -9,8 +9,6 @@ const {
 const basePath = `/`;
 const rootNote = `/September-9th-2020`;
 const roamUrl = process.env.ROAM_URL;
-const extensions = [".md", ".mdx"];
-const mediaTypes = ["text/markdown", "text/x-markdown"];
 
 exports.onPreBootstrap = async ({ store }) => {
   const { program } = store.getState();
