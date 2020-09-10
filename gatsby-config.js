@@ -8,5 +8,15 @@ module.exports = {
         password: process.env.ROAM_PASSWORD,
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-double-brackets-link`,
+          },
+        ],
+      },
+    },
   ],
 }
