@@ -6,21 +6,14 @@ const {
   findTopLevelHeading,
 } = require(`gatsby-transformer-markdown-references`);
 
-// These are customizable theme options we only need to check once
-let basePath;
-let roamUrl;
-let rootNote;
-let extensions;
-let mediaTypes;
+const basePath = `/`;
+const rootNote = `/September-9th-2020`;
+const roamUrl = process.env.ROAM_URL;
+const extensions = [".md", ".mdx"];
+const mediaTypes = ["text/markdown", "text/x-markdown"];
 
 exports.onPreBootstrap = async ({ store }) => {
   const { program } = store.getState();
-
-  basePath = `/`;
-  rootNote = `/September-9th-2020`;
-  roamUrl = process.env.ROAM_URL;
-  extensions = [".md", ".mdx"];
-  mediaTypes = ["text/markdown", "text/x-markdown"];
 
   await copyFile(
     path.join(__dirname, "./fragments/roam.fragment"),
