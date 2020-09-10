@@ -1,10 +1,12 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-roamresearch`,
+      options: {
+        url: process.env.ROAM_URL,
+        email: process.env.ROAM_EMAIL,
+        password: process.env.ROAM_PASSWORD,
+      },
+    },
+  ],
 }
